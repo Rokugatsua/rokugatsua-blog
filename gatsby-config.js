@@ -5,7 +5,7 @@
 
 module.exports = {
   siteMetadata: {
-    title: `rokugatsua-blog`,
+    title: "rokugatsua-blog",
     siteUrl: `https://www.yourdomain.tld`,
   },
   plugins: [

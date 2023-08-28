@@ -11,6 +11,7 @@ const AboutPage = () => {
         <Layout pageTitle={"About Me"}>
             <p>this page it's about me.</p>
             <StaticImage src="https://yt3.ggpht.com/ytc/AMLnZu_WBKt0fYv-RMkoGFJWgX2-wzZrbRbhEivY8Tv7Ow=s800-c-k-c0x00ffffff-no-rj" />
+            <StaticImage src='../images/icon.png' />
         </Layout>
     )
 }

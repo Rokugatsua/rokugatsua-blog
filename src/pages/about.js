@@ -1,11 +1,8 @@
 import * as React from 'react'
-import { StaticImage } from 'gatsby-plugin-image'
 
 import Layout from '../components/layout'
 import Seo from '../components/seo'
 import Ficon from '../components/ficon'
-
-import {navLinks, navLinkItem} from '../components/layout.module.css'
 
 
 const AboutMe = ({lang}) => {
@@ -37,15 +34,15 @@ const SocialLink = () => {
         {name:"linkedin", url:"https://linkedin.com/in/juniansyahs"}
     ]
     return (
-        <ul className={navLinks}>
-            {data.map(account => (
-                <li key={account.name} className={navLinkItem}>
-                    <a href={account.url}>
+        <div className='level is-mobile'>
+            <div className='level-left'>
+                {data.map(account => (
+                    <a href={account.url} key={account.name} className='level-item'>
                         <Ficon iconName={account.name} iconSize='2em'/>
                     </a>
-                </li>
-            ))}
-        </ul>
+                ))}
+            </div>
+        </div>
     )
 }
 
@@ -53,14 +50,13 @@ const SocialLink = () => {
 const AboutPage = () => {
     return (
         <Layout pageTitle={"About Me"}>
-            <h1>About Me</h1>
-            <div className='row'>
-                <div className='column'>
+            <div className='columns'>
+                <div className='column is-three-quarters'>
                     <AboutMe lang={"en"}/>
                     <h3>Social links :</h3>
                     <SocialLink />
                 </div>
-                <div className='column column-25'>
+                <div className='column'>
                 </div>
             </div>
         </Layout>

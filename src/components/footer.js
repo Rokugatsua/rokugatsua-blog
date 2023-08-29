@@ -2,7 +2,7 @@ import * as React from 'react'
 
 import Ficon from './ficon'
 
-import {navLinks, navLinkItem} from './footer.module.css'
+//import {navLinks, navLinkItem} from './footer.module.css'
 
 
 const Footer = () => {
@@ -13,20 +13,18 @@ const Footer = () => {
     ]
 
     return (
-        <footer className='clearfix'>
-            <div className='float-left'>
+        <footer className='columns is-mobile px-3'>
+            <div className='column'>
                 <span>By Rokugatsua</span>
             </div>
-            <div className='float-right'>
-                <ul className={navLinks}>
-                    {
-                        socialLinks.map(account =>(
-                            <li className={navLinkItem}>
-                                <a href={account.url}><Ficon iconName={account.name} iconSize='1em'/></a>
-                            </li>
-                        ))
-                    }
-                </ul>
+            <div className='level is-mobile'>
+                <div className='level-right'>
+                    {socialLinks.map(account => (
+                        <a href={account.url} className='level-item ml-1'>
+                            <Ficon iconName={account.name} iconSize='1.2em'/>
+                        </a>
+                    ))}
+                </div>
             </div>
         </footer>
     )

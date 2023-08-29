@@ -2,8 +2,6 @@ import * as React from 'react'
 
 import { Link, graphql, useStaticQuery } from 'gatsby'
 
-import {navLinks, navLinkItem, navLinkText, logo} from './header.module.css'
-
 const Header = () => {
     const data = useStaticQuery(graphql 
         `query {
@@ -14,23 +12,42 @@ const Header = () => {
             }
         }`)
     const title = data.site.siteMetadata.siteName
+    
+    const [isToggle, setIsToggle] = React.useState(false)
+
+    const navbarToggleHandler = () => {
+        setIsToggle(!isToggle)
+    }
 
     return (
-        <header className='clearfix'>
-            <div className='float-left'>
-                <a href='/' className={logo}>
-                    {title}
-                </a>
-            </div>
-            <div className='float-right'>
-                <nav>
-                    <ul className={navLinks}>
-                        <li className={navLinkItem}><Link className={navLinkText} to='/'>Home</Link></li>
-                        <li className={navLinkItem}><Link className={navLinkText} to='/about'>About</Link></li>
-                        <li className={navLinkItem}><Link className={navLinkText} to='/blog'>Blog</Link></li>
-                    </ul>
-                </nav>
-            </div>
+        <header>
+            <nav className='navbar is-fixed-top is-light' role='navigation' aria-label='main-navigation'>
+                <div className='navbar-brand'>
+                    <a href='/' className='navbar-item'>
+                        {title}
+                    </a>
+                    <button
+                        className='navbar-burger' 
+                        aria-label='menu' 
+                        aria-expanded='false' 
+                        tabIndex={0}
+                        onKeyDown={navbarToggleHandler}
+                        onClick={navbarToggleHandler}>
+                        <span aria-hidden='true'></span>
+                        <span aria-hidden='true'></span>
+                        <span aria-hidden='true'></span>
+                    </button>
+                </div>
+
+                <div className={`navbar-menu ${isToggle? 'is-active' : ''}`}>
+                    <div className='navbar-end'>
+                        <Link className='navbar-item' to='/'>Home</Link>
+                        <Link className='navbar-item' to='/about'>About</Link>
+                        <Link className='navbar-item' to='/blog'>Blog</Link>
+                    </div>
+                </div>
+
+            </nav>
 
         </header>
     )

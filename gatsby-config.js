@@ -5,8 +5,8 @@
 require('dotenv').config();
 module.exports = {
   siteMetadata: {
-    title: "rokugatsua-blog",
-    siteUrl: `https://www.yourdomain.tld`,
+    title: "rokugatsua",
+    siteUrl: `https://rokugatsua.my.id`,
   },
   plugins: [
     "gatsby-plugin-netlify",

@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { Link, useStaticQuery, graphql } from 'gatsby'
+import "milligram/dist/milligram.min.css"
 
 import { 
     container,
@@ -21,7 +22,7 @@ const Layout = ({pageTitle, children}) => {
             }
         }`)
     return (
-        <div className={container}>
+        <div className='container'>
             <header>{data.site.siteMetadata.title}</header>
             <nav>
                 <ul className={navLinks}>
@@ -31,7 +32,7 @@ const Layout = ({pageTitle, children}) => {
                 </ul>
             </nav>
             <main>
-                <h1 className={heading}>{pageTitle}</h1>
+                {/*<h1 className={heading}>{pageTitle}</h1> */}
                 {children}
             </main>
         </div>

@@ -1,6 +1,7 @@
 import * as React from 'react'
 import Layout from '../components/layout'
 import Ficon from '../components/ficon'
+import Seo from '../components/seo'
 
 
 const SocialLink = () => {
@@ -44,3 +45,5 @@ const LinkTree = () => {
 
 
 export default LinkTree
+
+export const Head = () => <Seo title="Linktree" />

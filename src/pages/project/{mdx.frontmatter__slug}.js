@@ -37,4 +37,4 @@ export const query = graphql `
 `
 export default ProjectPost
 
-export const Head = () => <Seo title={data.mdx.frontmatter.title} />
+export const Head = ({data}) => <Seo title={data.mdx.frontmatter.title} />

@@ -1,3 +1,6 @@
+body {
+    font-family: "Montserrat";
+}
 
 .content-height{
     min-height: 80vh;

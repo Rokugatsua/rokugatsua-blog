@@ -15,13 +15,14 @@ const ProjectPage = ({data}) => {
                         <Link to={`/project/${node.frontmatter.slug}`}>
                             <h1 className='title'>{node.frontmatter.title}</h1>
                         </Link>
+                        <hr></hr>
                         <p>{node.frontmatter.short_desc}</p>
                         <ul>
                             {node.frontmatter.highlights.map(msg =>(<li>{msg}</li>) )}
                         </ul>
                         <div>
-                            <a href={node.frontmatter.url} role='button' className='button is-primary is-small' >Play on Itch.io</a>
-                            <Link to={`/project/${node.frontmatter.slug}`} className='button is-small ml-4'>Detail</Link>
+                            <a href={node.frontmatter.url} role='button' className='button is-primary ' >Play on Itch.io</a>
+                            <Link to={`/project/${node.frontmatter.slug}`} className='button  ml-4'>Detail</Link>
                         </div>
                     </div>
                     <div className='column is-one-quarter'>
@@ -35,7 +36,10 @@ const ProjectPage = ({data}) => {
 
 export const query = graphql `
 query {
-    allMdx(filter: {frontmatter: {type: {eq: "project"}}}) {
+    allMdx(
+        filter: {frontmatter: {type: {eq: "project"}}}
+        sort: {frontmatter: {no: DESC}}
+    ) {
         nodes {
             frontmatter {
                 title

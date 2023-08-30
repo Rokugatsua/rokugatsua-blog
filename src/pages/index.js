@@ -12,7 +12,7 @@ const IndexPage = () => {
           <h3>I am self taught programmer and I make a game.</h3>
           <div className="level-left">
             <a href="/about" className="level-item button">About me</a>
-            <a href="/about" className="level-item button">My works</a>
+            <a href="/project" className="level-item button">My works</a>
           </div>
         </div>
         <div className="column"></div>

@@ -3,6 +3,7 @@ import * as React from 'react'
 import Layout from '../components/layout'
 import Seo from '../components/seo'
 import Ficon from '../components/ficon'
+import { StaticImage } from 'gatsby-plugin-image'
 
 
 const AboutMe = ({lang}) => {
@@ -57,6 +58,9 @@ const AboutPage = () => {
                     <SocialLink />
                 </div>
                 <div className='column'>
+                    <figure className='image is-128x128'>
+                        <StaticImage src='../images/rokugatsua-photo.jpeg' className='is-rounded'/>
+                    </figure>
                 </div>
             </div>
         </Layout>

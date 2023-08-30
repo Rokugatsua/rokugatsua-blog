@@ -3,6 +3,8 @@ import { graphql } from 'gatsby'
 import { getImage, GatsbyImage } from 'gatsby-plugin-image'
 import Layout from '../../components/layout'
 
+import Seo from '../../components/seo'
+
 const ProjectPost = ({data, children}) => {
     const image = getImage(data.mdx.frontmatter.thumbnail)
     return (

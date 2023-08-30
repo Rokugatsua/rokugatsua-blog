@@ -8,9 +8,16 @@ const BlogPost = ({data, children}) => {
     const image = getImage(data.mdx.frontmatter.hero_image)
     return (
         <Layout pageTitle={data.mdx.frontmatter.title}>
-            <p>{data.mdx.frontmatter.date}</p>
-            <GatsbyImage image={image} />
-            {children}
+            <p className='subtitle'><small>{data.mdx.frontmatter.date}</small></p>
+            <figure className='image is-3by1'>
+                <GatsbyImage image={image} className='has-ratio'/>
+            </figure>
+            <article className='content'>
+                {children}
+            </article>
+            <footer className='section'>
+                
+            </footer>
         </Layout>
     )
 }

@@ -42,8 +42,9 @@ const Header = () => {
                 <div className={`navbar-menu ${isToggle? 'is-active' : ''}`}>
                     <div className='navbar-end'>
                         <Link className='navbar-item' to='/'>Home</Link>
-                        <Link className='navbar-item' to='/about'>About</Link>
+                        <Link className='navbar-item' to='/project'>Project</Link>
                         <Link className='navbar-item' to='/blog'>Blog</Link>
+                        <Link className='navbar-item' to='/about'>About</Link>
                     </div>
                 </div>
 

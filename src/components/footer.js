@@ -2,8 +2,6 @@ import * as React from 'react'
 
 import Ficon from './ficon'
 
-//import {navLinks, navLinkItem} from './footer.module.css'
-
 
 const Footer = () => {
     const socialLinks = [

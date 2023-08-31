@@ -1,6 +1,5 @@
 import * as React from 'react'
 import {Link, graphql } from 'gatsby'
-import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 
 import Layout from '../../components/layout'
 import Seo from '../../components/seo'
@@ -10,7 +9,6 @@ const pageTitle = "Posts"
 
 
 const BlogPost = ({node, children}) => {
-    const image = getImage(node.frontmatter.hero_image)
     return (
         <div className='box block' key={node.id}>
             <Link to={`/blog/${node.frontmatter.slug}`}>

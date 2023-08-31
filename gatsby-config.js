@@ -66,5 +66,17 @@ module.exports = {
         ],
       },
     },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: "Rokugatsua",
+        short_name: "Rokugatsua",
+        start_url: "/",
+        icon: `src/images/favicon.svg`,
+        display: "standalone",
+        crossOrigin: `use-credentials`,
+      }
+
+    },
   ],
 }

@@ -6,34 +6,66 @@ import Layout from '../../components/layout'
 import Seo from '../../components/seo'
 
 
-const ProjectPage = ({data}) => {
-
+const ProjectPostFooter = ({node}) => {
+    const actions = [
+        {url:`/project/${node.frontmatter.url}`, label: "Play on Itch.io", style:"is-primary"},
+        {url:`/project/${node.frontmatter.slug}`, label: "Detail", style:""}
+    ]
     return (
-        <Layout pageTitle='Project'>
-            {data.allMdx.nodes.map(node => (
-                <div key={node.id} className='box columns mb-5'>
-                    <div className='column'>
-                        <Link to={`/project/${node.frontmatter.slug}`}>
-                            <h1 className='title'>{node.frontmatter.title}</h1>
-                        </Link>
-                        <hr></hr>
-                        <p>{node.frontmatter.short_desc}</p>
-                        <ul>
-                            {node.frontmatter.highlights.map(msg =>(<li>{msg}</li>) )}
-                        </ul>
-                        <div>
-                            <a href={node.frontmatter.url} role='button' className='button is-primary ' >Play on Itch.io</a>
-                            <Link to={`/project/${node.frontmatter.slug}`} className='button  ml-4'>Detail</Link>
-                        </div>
-                    </div>
-                    <div className='column is-one-quarter'>
-                        <GatsbyImage className='image is-fullwidth' image={getImage(node.frontmatter.thumbnail)}/>
-                    </div>
+        <div>
+            {actions.map(action => (
+                <Link to={action.url} className={`button ml-4 ${action.style}`}>{action.label}</Link>
+            ))}
+        </div>
+    )
+}
+
+
+const ProjectPostContent = ({node, className}) => {
+    return (
+        <div className={className}>
+            <Link to={`/project/${node.frontmatter.slug}`} >
+                <h3 className='title'>{node.frontmatter.title}</h3>
+            </Link>
+            <hr></hr>
+            <div className='content'>
+                <p>{node.frontmatter.short_desc}</p>
+                <ul>
+                    {node.frontmatter.highlights.map(msg =>(<li>{msg}</li>) )}
+                </ul>
+                <ProjectPostFooter node={node} />
+            </div>
+        </div>
+    )
+}
+
+
+const ProjectPost = ({node}) => {
+    const thumbnail = getImage(node.frontmatter.thumbnail)
+    return (
+        <div className='box block'>
+            <div className='columns is-flex-direction-row-reverse'>
+                <div className='column is-one-quarter'>
+                    <GatsbyImage className='image is-fullwidth' image={thumbnail} />
                 </div>
+                <ProjectPostContent className={'column'} node={node} />
+            </div>
+        </div>
+    )
+}
+
+
+const ProjectPage = ({data}) => {
+    return (
+        <Layout pageTitle='Projects'>
+
+            {data.allMdx.nodes.map(node => (
+                <ProjectPost node={node} />
             ))}
         </Layout>
     )
 }
+
 
 export const query = graphql `
 query {
@@ -54,6 +86,7 @@ query {
                 }
                 url
             }
+            id
         }
     }
 }
@@ -61,5 +94,5 @@ query {
 
 export default ProjectPage
 
-export const Head = () => <Seo title="Project list" />
+export const Head = () => <Seo title="Projects" />
 

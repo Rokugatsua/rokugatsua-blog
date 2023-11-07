@@ -8,7 +8,7 @@ import Seo from '../../components/seo'
 
 const ProjectPostFooter = ({node}) => {
     const actions = [
-        {url:`/project/${node.frontmatter.url}`, label: "Play on Itch.io", style:"is-primary"},
+        {url:`${node.frontmatter.url}`, label: "Play on Itch.io", style:"is-primary"},
         {url:`/project/${node.frontmatter.slug}`, label: "Detail", style:""}
     ]
     return (
